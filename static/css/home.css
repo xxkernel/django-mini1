@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.header {
+  background-color: #282c34;
+  padding: 20px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+}
+
+.nav__link {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.nav__link:hover {
+  background-color: #3a3f47;
+  border-radius: 5px;
+}
+
+.nav__link--login {
+  background-color: #4caf50;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+.nav__link--login:hover {
+  background-color: #45a049;
+}
+
+.nav__link--logout {
+  background-color: #f44336;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+.nav__link--logout:hover {
+  background-color: #e53935;
+}
+
+.main-content {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.main-content__title {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.main-content__highlight {
+  color: #ff8c00;
+}
+
+.main-content__subtitle {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.post {
+  background: #ffffff;
+  border-radius: 8px;
+  margin: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  flex: 1 1 calc(30% - 30px);
+  max-width: calc(30% - 30px);
+  display: flex;
+  flex-direction: column;
+}
+
+.post__title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.post__content {
+  flex-grow: 1;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.post__image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.post__footer {
+  text-align: right;
+}
+
+.post__read-more {
+  background-color: #ff8c00;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.nav__out {
+  color: #f44336;
+}
+.post__read-more:hover {
+  background-color: #e07b00;
+}

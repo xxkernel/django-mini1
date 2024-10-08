@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Home Page</title>
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="{% static 'css/home.css' %}"
+    />
+  </head>
+  <body>
+    <main class="main-content">
+      <div class="post-list">
+        {% for post in posts %}
+        <article class="post">
+          <h3 class="post__title">{{ post.title }}</h3>
+          <p class="post__content">{{ post.content|truncatewords:5 }}</p>
+          {% if post.image %}
+          <img
+            class="post__image"
+            src="{{ post.image.url }}"
+            alt="{{ post.title }}"
+          />
+          {% endif %}
+          <div class="post__footer">
+            <a
+              class="post__read-more btn"
+              href="{% url 'post_detail' post.pk %}"
+              >Read More</a
+            >
+          </div>
+        </article>
+        {% empty %}
+        <p class="no-posts">No posts available.</p>
+        {% endfor %}
+      </div>
+    </main>
+  </body>
+</html>

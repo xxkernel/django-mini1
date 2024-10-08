@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>{{ post.title }}</title>
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="{% static 'css/post_detail.css' %}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Post Header -->
+      <header class="post-header">
+        <h1 class="post-title">{{ post.title }}</h1>
+        <div class="action-buttons">
+          {% if user == post.author %}
+          <a
+            href="{% url 'edit_post' post.pk %}"
+            class="btn btn-edit"
+            >Edit</a
+          >
+          <a
+            href="{% url 'delete_post' post.pk %}"
+            class="btn btn-delete"
+            >Delete</a
+          >
+          {% endif %}
+        </div>
+      </header>
+
+      <!-- Post Metadata -->
+      <div class="post-meta">
+        <span class="author">
+          By
+          <a href="{% url 'profile' post.author.username %}"
+            >{{ post.author }}</a
+          >
+        </span>
+        | <span class="date">{{ post.created_at }}</span>
+      </div>
+
+      <!-- Post Image -->
+      {% if post.image %}
+      <img
+        src="{{ post.image.url }}"
+        alt="{{ post.title }}"
+        class="post-image"
+      />
+      {% endif %}
+
+      <!-- Post Content -->
+      <div class="post-content">{{ post.content }}</div>
+
+      <!-- Comments Section -->
+      <section class="comments-section">
+        <h2 class="comments-title">Comments</h2>
+        <ul class="comments-list">
+          {% for comment in comments %}
+          <li class="comment-item">
+            <!-- Make the comment author name clickable -->
+            <strong class="comment-author">
+              <a href="{% url 'profile' comment.author.username %}">
+                {{ comment.author.username }}
+              </a> </strong
+            >:
+            <span class="comment-content">{{ comment.content }}</span>
+            <span class="comment-date"
+              >{{ comment.created_at|date:"M d, Y, P" }}</span
+            >
+          </li>
+          {% empty %}
+          <li class="no-comments">No comments yet.</li>
+          {% endfor %}
+        </ul>
+
+        <!-- Add Comment Form -->
+        {% if user.is_authenticated %}
+        <h3 class="add-comment-title">Add a Comment</h3>
+        <form
+          method="POST"
+          action="{% url 'add_comment' post.pk %}"
+          class="comment-form"
+        >
+          {% csrf_token %} {{ form.as_p }}
+          <button
+            type="submit"
+            class="btn btn-submit"
+          >
+            Post Comment
+          </button>
+        </form>
+        {% else %}
+        <p class="error-message">{{ error_message }}</p>
+        <a
+          href="{% url 'login' %}"
+          class="login-link"
+          >Login to comment</a
+        >
+        {% endif %}
+      </section>
+
+      <!-- Back to Home -->
+      <a
+        href="{% url 'home' %}"
+        class="btn btn-back"
+        >Back to Home</a
+      >
+    </div>
+  </body>
+</html>

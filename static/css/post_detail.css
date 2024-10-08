@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eef2f3;
+  color: #333;
+  line-height: 1.5;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.post-title {
+  font-size: 2.5em;
+  color: #333;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn-edit {
+  background-color: #4caf50; /* Green */
+}
+
+.btn-edit:hover {
+  background-color: #45a049;
+}
+
+.btn-delete {
+  background-color: #f44336; /* Red */
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+}
+
+.post-meta {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.post-image {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.post-content {
+  margin: 20px 0;
+  font-size: 1.1em;
+}
+
+.comments-section {
+  margin-top: 40px;
+}
+
+.comments-title {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.comments-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comment-item {
+  background: #f1f1f1;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.no-comments {
+  text-align: center;
+  color: #999;
+}
+
+.error-message {
+  color: red;
+  margin: 10px 0;
+}
+
+.login-link {
+  color: #007bff;
+}
+
+.add-comment-title {
+  margin-top: 30px;
+  font-size: 1.5em;
+}
+
+.comment-form {
+  margin-top: 15px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.btn-submit {
+  background-color: #007bff; /* Blue */
+  border: none;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+.btn-back {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #007bff;
+  text-align: center;
+}
+
+.btn-back:hover {
+  background-color: #0056b3;
+}
